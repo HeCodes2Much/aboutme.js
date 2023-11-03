@@ -11,7 +11,7 @@
  *Created:
  *   Fri 03 November 2023, 08:30:00 PM [GMT]
  *Modified:
- *   Fri 03 November 2023, 11:37:01 PM [GMT]
+ *   Fri 03 November 2023, 11:55:40 PM [GMT]
  *
  *Description:
  *   aboutme.js NPM Package
@@ -110,173 +110,149 @@ class AboutMeEmbedBuilder extends EmbedBuilder {
 				value: null,
 			},
 		};
+
+		this.setOrder = []; // Maintain the order in which properties were set
 	}
 
-	// Setter methods for all properties
 	setName({ emoji, value }) {
 		this.aboutMeData.name.emoji = emoji;
 		this.aboutMeData.name.value = value;
+		this.setOrder.push("name");
 		return this;
 	}
 
 	setAge({ emoji, value }) {
 		this.aboutMeData.age.emoji = emoji;
 		this.aboutMeData.age.value = value;
+		this.setOrder.push("age");
 		return this;
 	}
 
 	setGender({ emoji, value }) {
 		this.aboutMeData.gender.emoji = emoji;
 		this.aboutMeData.gender.value = value;
+		this.setOrder.push("gender");
 		return this;
 	}
 
 	setHobbies({ emoji, value }) {
 		this.aboutMeData.hobbies.emoji = emoji;
 		this.aboutMeData.hobbies.value = value;
+		this.setOrder.push("hobbies");
 		return this;
 	}
 
 	setLanguages({ emoji, value }) {
 		this.aboutMeData.languages.emoji = emoji;
 		this.aboutMeData.languages.value = value;
+		this.setOrder.push("languages");
 		return this;
 	}
 
 	setFlags({ emoji, value }) {
 		this.aboutMeData.flags.emoji = emoji;
 		this.aboutMeData.flags.value = value;
+		this.setOrder.push("flags");
 		return this;
 	}
 
 	setBadges({ emoji, value }) {
 		this.aboutMeData.badges.emoji = emoji;
 		this.aboutMeData.badges.value = value;
+		this.setOrder.push("badges");
 		return this;
 	}
 
 	setID({ emoji, value }) {
 		this.aboutMeData.id.emoji = emoji;
 		this.aboutMeData.id.value = value;
+		this.setOrder.push("id");
 		return this;
 	}
 
 	setBirthday({ emoji, value }) {
 		this.aboutMeData.birthday.emoji = emoji;
 		this.aboutMeData.birthday.value = value;
+		this.setOrder.push("birthday");
 		return this;
 	}
 
 	setFavoriteColor({ emoji, value }) {
 		this.aboutMeData.favoriteColor.emoji = emoji;
 		this.aboutMeData.favoriteColor.value = value;
+		this.setOrder.push("favoriteColor");
 		return this;
 	}
 
 	setFavoriteAnimals({ emoji, value }) {
 		this.aboutMeData.favoriteAnimals.emoji = emoji;
 		this.aboutMeData.favoriteAnimals.value = value;
+		this.setOrder.push("favoriteAnimals");
 		return this;
 	}
 
 	setFavoriteFoods({ emoji, value }) {
 		this.aboutMeData.favoriteFoods.emoji = emoji;
 		this.aboutMeData.favoriteFoods.value = value;
+		this.setOrder.push("favoriteFoods");
 		return this;
 	}
 
 	setFavoriteSongs({ emoji, value }) {
 		this.aboutMeData.favoriteSongs.emoji = emoji;
 		this.aboutMeData.favoriteSongs.value = value;
+		this.setOrder.push("favoriteSongs");
 		return this;
 	}
 
 	setFavoriteArtists({ emoji, value }) {
 		this.aboutMeData.favoriteArtists.emoji = emoji;
 		this.aboutMeData.favoriteArtists.value = value;
+		this.setOrder.push("favoriteArtists");
 		return this;
 	}
 
 	setFavoriteMovies({ emoji, value }) {
 		this.aboutMeData.favoriteMovies.emoji = emoji;
 		this.aboutMeData.favoriteMovies.value = value;
+		this.setOrder.push("favoriteMovies");
 		return this;
 	}
 
 	setFavoriteActors({ emoji, value }) {
 		this.aboutMeData.favoriteActors.emoji = emoji;
 		this.aboutMeData.favoriteActors.value = value;
+		this.setOrder.push("favoriteActors");
 		return this;
 	}
 
 	setOrigin({ emoji, value }) {
 		this.aboutMeData.origin.emoji = emoji;
 		this.aboutMeData.origin.value = value;
+		this.setOrder.push("origin");
 		return this;
 	}
 
 	setStatus({ emoji, value }) {
 		this.aboutMeData.status.emoji = emoji;
 		this.aboutMeData.status.value = value;
+		this.setOrder.push("status");
 		return this;
 	}
 
 	build() {
-		if (this.aboutMeData.age && this.aboutMeData.age.emoji && this.aboutMeData.age.value) {
-			this.setTitle(`${this.aboutMeData.age.emoji} ${this.aboutMeData.name.value}`);
-		}
+		this.setTitle(this.aboutMeData.name.value);
 		const fields = [];
 
-		if (this.aboutMeData.age && this.aboutMeData.age.emoji && this.aboutMeData.age.value) {
-			fields.push({ name: `${this.aboutMeData.age.emoji} Age`, value: `${this.aboutMeData.age.value}`, inline: true });
-		}
-		if (this.aboutMeData.gender && this.aboutMeData.gender.emoji && this.aboutMeData.gender.value) {
-			fields.push({ name: `${this.aboutMeData.gender.emoji} Gender`, value: `${this.aboutMeData.gender.value}`, inline: true });
-		}
-		if (this.aboutMeData.hobbies && this.aboutMeData.hobbies.emoji && this.aboutMeData.hobbies.value) {
-			fields.push({ name: `${this.aboutMeData.hobbies.emoji} Hobbies`, value: `${this.aboutMeData.hobbies.value}`, inline: true });
-		}
-		if (this.aboutMeData.languages && this.aboutMeData.languages.emoji && this.aboutMeData.languages.value) {
-			fields.push({ name: `${this.aboutMeData.languages.emoji} Languages`, value: `${this.aboutMeData.languages.value}`, inline: true });
-		}
-		if (this.aboutMeData.flags && this.aboutMeData.flags.emoji && this.aboutMeData.flags.value) {
-			fields.push({ name: `${this.aboutMeData.flags.emoji} Flags`, value: `${this.aboutMeData.flags.value}`, inline: true });
-		}
-		if (this.aboutMeData.badges && this.aboutMeData.badges.emoji && this.aboutMeData.badges.value) {
-			fields.push({ name: `${this.aboutMeData.badges.emoji} Badges`, value: `${this.aboutMeData.badges.value}`, inline: true });
-		}
-		if (this.aboutMeData.id && this.aboutMeData.id.emoji && this.aboutMeData.id.value) {
-			fields.push({ name: `${this.aboutMeData.id.emoji} ID`, value: `${this.aboutMeData.id.value}`, inline: true });
-		}
-		if (this.aboutMeData.birthday && this.aboutMeData.birthday.emoji && this.aboutMeData.birthday.value) {
-			fields.push({ name: `${this.aboutMeData.birthday.emoji} Birthday`, value: `${this.aboutMeData.birthday.value}`, inline: true });
-		}
-		if (this.aboutMeData.favoriteColor && this.aboutMeData.favoriteColor.emoji && this.aboutMeData.favoriteColor.value) {
-			fields.push({ name: `${this.aboutMeData.favoriteColor.emoji} Favorite Color`, value: `${this.aboutMeData.favoriteColor.value}`, inline: true });
-		}
-		if (this.aboutMeData.favoriteAnimals && this.aboutMeData.favoriteAnimals.emoji && this.aboutMeData.favoriteAnimals.value) {
-			fields.push({ name: `${this.aboutMeData.favoriteAnimals.emoji} Favorite Animals`, value: `${this.aboutMeData.favoriteAnimals.value}`, inline: true });
-		}
-		if (this.aboutMeData.favoriteFoods && this.aboutMeData.favoriteFoods.emoji && this.aboutMeData.favoriteFoods.value) {
-			fields.push({ name: `${this.aboutMeData.favoriteFoods.emoji} Favorite Foods`, value: `${this.aboutMeData.favoriteFoods.value}`, inline: true });
-		}
-		if (this.aboutMeData.favoriteSongs && this.aboutMeData.favoriteSongs.emoji && this.aboutMeData.favoriteSongs.value) {
-			fields.push({ name: `${this.aboutMeData.favoriteSongs.emoji} Favorite Songs`, value: `${this.aboutMeData.favoriteSongs.value}`, inline: true });
-		}
-		if (this.aboutMeData.favoriteArtists && this.aboutMeData.favoriteArtists.emoji && this.aboutMeData.favoriteArtists.value) {
-			fields.push({ name: `${this.aboutMeData.favoriteArtists.emoji} Favorite Artists`, value: `${this.aboutMeData.favoriteArtists.value}`, inline: true });
-		}
-		if (this.aboutMeData.favoriteMovies && this.aboutMeData.favoriteMovies.emoji && this.aboutMeData.favoriteMovies.value) {
-			fields.push({ name: `${this.aboutMeData.favoriteMovies.emoji} Favorite Movies`, value: `${this.aboutMeData.favoriteMovies.value}`, inline: true });
-		}
-		if (this.aboutMeData.favoriteActors && this.aboutMeData.favoriteActors.emoji && this.aboutMeData.favoriteActors.value) {
-			fields.push({ name: `${this.aboutMeData.favoriteActors.emoji} Favorite Actors`, value: `${this.aboutMeData.favoriteActors.value}`, inline: true });
-		}
-		if (this.aboutMeData.origin && this.aboutMeData.origin.emoji && this.aboutMeData.origin.value) {
-			fields.push({ name: `${this.aboutMeData.origin.emoji} Origin`, value: `${this.aboutMeData.origin.value}`, inline: true });
-		}
-		if (this.aboutMeData.status && this.aboutMeData.status.emoji && this.aboutMeData.status.value) {
-			fields.push({ name: `${this.aboutMeData.status.emoji} Status`, value: `${this.aboutMeData.status.value}`, inline: true });
+		for (const property of this.setOrder) {
+			if (this.aboutMeData[property].emoji && this.aboutMeData[property].value) {
+				const fieldName = property.charAt(0).toUpperCase() + property.slice(1); // Capitalize the first letter of the property name
+				fields.push({
+					name: `${this.aboutMeData[property].emoji} ${fieldName}`,
+					value: `${this.aboutMeData[property].value}`,
+					inline: this.aboutMeData[property]?.inline || false,
+				});
+			}
 		}
 
 		this.addFields(fields);
