@@ -11,7 +11,7 @@
  *Created:
  *   Fri 03 November 2023, 08:30:00 PM [GMT]
  *Modified:
- *   Fri 03 November 2023, 11:19:31 PM [GMT]
+ *   Fri 03 November 2023, 11:22:32 PM [GMT]
  *
  *Description:
  *   aboutme.js NPM Package
@@ -278,8 +278,6 @@ class AboutMeEmbedBuilder extends EmbedBuilder {
 		}
 
 		this.addFields(fields);
-
-		console.log(this);
 		return this;
 	}
 }
