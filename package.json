@@ -1,0 +1,20 @@
+{
+    "name": "aboutme.js",
+    "version": "0.0.1",
+    "description": "A aboutme builder for discord.js bots",
+    "main": "index.js",
+    "keywords": [
+        "discord",
+        "bot",
+        "about",
+        "me",
+        "mod",
+        "builder"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:HeCodes2Much/aboutme.js.git"
+    },
+    "author": "HeCodes2Much",
+    "license": "MIT"
+}
