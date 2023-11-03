@@ -11,7 +11,7 @@
  *Created:
  *   Fri 03 November 2023, 08:30:00 PM [GMT]
  *Modified:
- *   Fri 03 November 2023, 08:30:24 PM [GMT]
+ *   Fri 03 November 2023, 09:14:21 PM [GMT]
  *
  *Description:
  *   aboutme.js NPM Package
@@ -31,43 +31,52 @@ class AboutMeBuilder {
 	}
 }
 
-class AboutMeEmbedBuilder {
+const { EmbedBuilder } = require("discord.js");
+
+class AboutMeEmbedBuilder extends EmbedBuilder {
 	constructor() {
-		this.name = "";
-		this.age = null;
-		this.gender = "";
-		this.hobbies = "";
-		this.languages = "";
-		this.footer = { text: "" };
+		super();
+		this.aboutMeData = {
+			name: "",
+			age: null,
+			gender: "",
+			hobbies: "",
+			languages: "",
+		};
 	}
 
 	setName(name) {
-		this.name = name;
+		this.aboutMeData.name = name;
 		return this;
 	}
 
 	setAge(age) {
-		this.age = age;
+		this.aboutMeData.age = age;
 		return this;
 	}
 
 	setGender(gender) {
-		this.gender = gender;
+		this.aboutMeData.gender = gender;
 		return this;
 	}
 
 	setHobbies(hobbies) {
-		this.hobbies = hobbies;
+		this.aboutMeData.hobbies = hobbies;
 		return this;
 	}
 
 	setLanguages(languages) {
-		this.languages = languages;
+		this.aboutMeData.languages = languages;
 		return this;
 	}
 
-	setFooter(footer) {
-		this.footer = footer;
+	build() {
+		this.setTitle(this.aboutMeData.name)
+			.addFields({ name: "Age", value: this.aboutMeData.age || "Not specified", inline: false })
+			.addFields({ name: "Gender", value: this.aboutMeData.gender || "Not specified", inline: false })
+			.addFields({ name: "Hobbies", value: this.aboutMeData.hobbies || "Not specified", inline: false })
+			.addFields({ name: "Languages", value: this.aboutMeData.languages || "Not specified", inline: false });
+
 		return this;
 	}
 }

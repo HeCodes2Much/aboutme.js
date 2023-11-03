@@ -1,6 +1,6 @@
 {
     "name": "aboutme.js",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "A aboutme builder for discord.js bots",
     "main": "index.js",
     "keywords": [
@@ -16,5 +16,8 @@
         "url": "git+ssh://git@github.com/HeCodes2Much/aboutme.js.git"
     },
     "author": "HeCodes2Much",
-    "license": "GPLv3"
+    "license": "GPLv3",
+    "dependencies": {
+        "discord.js": "^14.13.0"
+    }
 }
