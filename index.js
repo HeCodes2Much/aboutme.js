@@ -11,7 +11,7 @@
  *Created:
  *   Fri 03 November 2023, 08:30:00 PM [GMT]
  *Modified:
- *   Fri 03 November 2023, 11:22:32 PM [GMT]
+ *   Fri 03 November 2023, 11:37:01 PM [GMT]
  *
  *Description:
  *   aboutme.js NPM Package
@@ -222,7 +222,9 @@ class AboutMeEmbedBuilder extends EmbedBuilder {
 	}
 
 	build() {
-		this.setTitle(this.aboutMeData.name.value);
+		if (this.aboutMeData.age && this.aboutMeData.age.emoji && this.aboutMeData.age.value) {
+			this.setTitle(`${this.aboutMeData.age.emoji} ${this.aboutMeData.name.value}`);
+		}
 		const fields = [];
 
 		if (this.aboutMeData.age && this.aboutMeData.age.emoji && this.aboutMeData.age.value) {
