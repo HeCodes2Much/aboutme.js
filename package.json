@@ -1,6 +1,6 @@
 {
     "name": "aboutme.js",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "description": "A about me builder for discord.js bots",
     "main": "index.js",
     "keywords": [
