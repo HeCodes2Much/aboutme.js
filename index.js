@@ -11,7 +11,7 @@
  *Created:
  *   Fri 03 November 2023, 08:30:00 PM [GMT]
  *Modified:
- *   Sat 04 November 2023, 12:24:39 AM [GMT]
+ *   Sat 04 November 2023, 12:54:31 AM [GMT]
  *
  *Description:
  *   aboutme.js NPM Package
@@ -307,9 +307,7 @@ class AboutMeEmbedBuilder extends EmbedBuilder {
 	}
 
 	build() {
-		this.setTitle(this.aboutMeData.name.value);
 		const fields = [];
-
 		for (const property of this.setOrder) {
 			if (this.aboutMeData[property].emoji && this.aboutMeData[property].value) {
 				const fieldName = property.charAt(0).toUpperCase() + property.slice(1); // Capitalize the first letter of the property name
@@ -320,7 +318,6 @@ class AboutMeEmbedBuilder extends EmbedBuilder {
 				});
 			}
 		}
-
 		this.addFields(fields);
 		return this;
 	}
