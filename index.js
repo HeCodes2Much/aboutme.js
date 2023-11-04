@@ -11,7 +11,7 @@
  *Created:
  *   Fri 03 November 2023, 08:30:00 PM [GMT]
  *Modified:
- *   Sat 04 November 2023, 12:07:44 AM [GMT]
+ *   Sat 04 November 2023, 12:24:39 AM [GMT]
  *
  *Description:
  *   aboutme.js NPM Package
@@ -32,6 +32,10 @@ class AboutMeBuilder {
 }
 
 const { EmbedBuilder } = require("discord.js");
+
+function formatFieldName(fieldName) {
+	return fieldName.replace(/([a-z])([A-Z])/g, "$1 $2");
+}
 
 class AboutMeEmbedBuilder extends EmbedBuilder {
 	constructor() {
@@ -110,6 +114,14 @@ class AboutMeEmbedBuilder extends EmbedBuilder {
 				value: null,
 			},
 			status: {
+				emoji: null,
+				value: null,
+			},
+			currency: {
+				emoji: null,
+				value: null,
+			},
+			aboutMe: {
 				emoji: null,
 				value: null,
 			},
@@ -278,6 +290,22 @@ class AboutMeEmbedBuilder extends EmbedBuilder {
 		return this;
 	}
 
+	setAboutMe({ emoji, value, inline }) {
+		this.aboutMeData.aboutMe.emoji = emoji;
+		this.aboutMeData.aboutMe.value = value;
+		this.aboutMeData.aboutMe.inline = inline;
+		this.setOrder.push("aboutMe");
+		return this;
+	}
+
+	setCurrency({ emoji, value, inline }) {
+		this.aboutMeData.currency.emoji = emoji;
+		this.aboutMeData.currency.value = value;
+		this.aboutMeData.currency.inline = inline;
+		this.setOrder.push("currency");
+		return this;
+	}
+
 	build() {
 		this.setTitle(this.aboutMeData.name.value);
 		const fields = [];
@@ -286,7 +314,7 @@ class AboutMeEmbedBuilder extends EmbedBuilder {
 			if (this.aboutMeData[property].emoji && this.aboutMeData[property].value) {
 				const fieldName = property.charAt(0).toUpperCase() + property.slice(1); // Capitalize the first letter of the property name
 				fields.push({
-					name: `${this.aboutMeData[property].emoji} ${fieldName}`,
+					name: `${this.aboutMeData[property].emoji} ${formatFieldName(fieldName)}`,
 					value: `${this.aboutMeData[property].value}`,
 					inline: this.aboutMeData[property]?.inline || false,
 				});
@@ -294,7 +322,6 @@ class AboutMeEmbedBuilder extends EmbedBuilder {
 		}
 
 		this.addFields(fields);
-		console.log(this);
 		return this;
 	}
 }
